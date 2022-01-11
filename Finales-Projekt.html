@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiel-Character-creator</title>
+    <style>
+        body{
+            color: #eee;
+            background: #202020;
+            }
+        .paragraph{
+            display: flex;
+            justify-content: center;
+            font-size: 15;
+            font-weight: bold;
+            font-style: italic;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+        .page-header{
+            text-transform: uppercase;
+            font: bold;
+            font-family: "press start 2p";
+            text-decoration: underline;
+            color: rgb(0, 255, 85);
+            display: flex;
+            justify-content: center;
+        }
+        .ul-list-li{
+            display: flex;
+            justify-content: center;
+            padding: left 10, right 10;
+        }
+        table{
+            border-collapse: collapse;
+            width:200px;
+            margin: 0 auto;
+        }
+        tr, th, td{
+            border: 3px solid rgba(0, 255, 13, 0.5);
+            text-align: center;
+        }
+        .textfeld{
+            display:flex;
+            justify-content: center;
+        }
+        .ruleset{
+            display: flex;
+            justify-content: center;
+            font-size: 15;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
+        }
+        button{
+            padding: auto;
+            background-color: rgba(19, 19, 19, 0);
+            color: white;
+        }
+        .own-class{
+            display: flex;
+            align-items: center;
+            margin:0 auto;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        input{
+            display: flex;
+            justify-content: center;
+        }
+        hr{
+            border: 1px solid rgba(0, 128, 0, 0.5);
+        }
+        #checkbox{
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+        button:hover{
+            background-color: rgb(0, 0, 0);
+            color: rgb(0, 255, 0);
+        }
+        .liste{
+            margin: 0 auto;
+            padding:0 auto;
+            text-align: center;
+            background-color:black;
+            color: white;
+        }
+        #würfel{
+            display: flex;
+            align-items: center;
+            margin:0 auto;
+            text-align: center;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        #end-list{
+            padding:0 auto;
+            margin: 0 auto;
+            text-align: left;
+            list-style-type: none;
+            color: rgb(0, 255, 0);
+        }
+        #end-list:hover{
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="page-header">Final Project</h1>
+    <br>
+    <hr>
+    <p class="paragraph">Diese Webseite ist ein Prototype für ein Spiel-helfer zur character-erstellung. <!--Idee wäre Automatische Stat-übernahme bei klicken der Knöpfe, hier bitte Fantasie nutzen da Formular übertragung und Abfrage zu viel wäre um dies einzufügen, sowie weitere Klassen und unter-klassen--></p>
+    <h2 class="page-header">How-to:</h2>
+    <ul class="ul-list">
+        <li class="ul-list-li">Gebe den Namen deines Characters ein</li>
+        <li class="ul-list-li">Wähle eine Klasse</li>
+        <li class="ul-list-li">Roll deine Werte und trage sie in die Liste ein</li>
+        <li class="ul-list-li">Character erstellen</li>
+    </ul>
+    <br>
+    <hr>
+    <input class="own-class" type="text" placeholder="Name des Characters">
+        <hr>
+        <table>
+            <tr>
+                <th>
+                    <button>Kämpfer</button>
+                </th>
+                <th>
+                    <button>Magier</button>
+                </th>
+                <th>
+                    <input class="own-class" type="text" placeholder="eigene">
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <button>Waffenspezialist</button>
+                </td>
+                <td>
+                    <button>Elementzauber</button>
+                </td>
+                <td>
+                    <button>Dieb</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button>Rüstungsspezialist</button>
+                    </td>
+                <td>
+                    <button>Necromancer</button>
+                </td>
+                <td>
+                    <button>Bade</button>     
+                </td>
+            </tr>
+        </table>
+        <p class="paragraph"> Welche Rasse soll der Character sein:</p>
+        <select class="own-class">
+            <option>Mensch</option>
+            <option>Ork</option>
+            <option>Elf</option>
+        </select>
+        <br>
+        <p class="paragraph">ich möchte den Character speichern:</p>
+            <input id="checkbox" type="checkbox" checked="checked">
+
+        <hr>
+        <h1 class="page-header">Würfel:</h1>
+        <p class="paragraph">Würfel für jeden Wert 3 mal, die Zusatzwerte für Klasse und Rasse werden automatisch hinzugefügt*<!--JS feature, coming soon-->. Trage anschließend die Werte in der Tabelle der Reihe nach ein:</p>
+        <button id="würfel">Werte würfeln</button>
+        <img class="own-class" src="https://www.animierte-gifs.net/data/media/710/animiertes-wuerfel-bild-0094.gif" border="0" alt="animiertes-wuerfel-bild-0102">
+        <!-- js code goes here-->
+        <br>
+        <table>
+            <tr>
+                <th>
+                    <input class="liste" type="number" placeholder="1" min="1" max="99">Stärke
+                </th>
+                <th>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Magie
+                </th>
+                <th>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Geschicklichkeit
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Weltkunde
+                </td>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Überleben
+                </td>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Schleichen
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Wissen
+                </td>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Überreden
+                </td>
+                <td>
+                    <input class="liste"  type="number" placeholder="1" min="1" max="99">Charisma  
+                </td>
+            </tr>
+        </table> 
+        <hr>
+        <input type="submit" class="own-class" value="Character Erstellen">
+    </form>
+    <hr>
+    <p>*manche fetures funktionieren in der aktuellen Version noch nicht</p>
+    <ul id="end-list">
+        <li id="end-list">
+            <a id="end-list" href="https://www.google.com">Impressum</a>
+        </li>
+        <li id="end-list">
+            <a id="end-list" href="https://www.google.com">Kontakt</a>
+        </li>
+        <li id="end-list">
+            <a id="end-list" href="https://www.google.com">Weitere Tools</a>
+        </li>
+        <li id="end-list">
+            <a id="end-list" href="https://www.google.com">Projekt unterstützen</a>
+        </li>
+    </ul>
+</body>
+</html>
